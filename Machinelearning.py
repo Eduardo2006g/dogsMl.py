@@ -48,7 +48,7 @@ model = tf.keras.models.Sequential([
 # Compila o modelo
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'], run_eagerly=True)
 # Treina o modelo
-history = model.fit(validation_generator,)
+history = model.fit(validation_generator)
       #validation_steps=validation_generator.samples // validation_generator.batch_size)
 
 # Avalia a acurácia do modelo com dados de teste
