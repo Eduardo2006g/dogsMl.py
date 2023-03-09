@@ -3,32 +3,32 @@ import os
 
 def main():
     
-    # GET LIST NAMES
+    #pega os nomes da API de lista
     url = 'https://dog.ceo/api/breeds/list/all'
     racas_json = requests.get(url).json()
     racas_json = racas_json['message']
     print(racas_json)
     
-    # GET IMAGES BY NAME
+    #separa as imagens por nome
     for key, value in racas_json.items():
         
         if (value):
             for name_value in value:
-                # GET IMAGE
+                #pega as imagens de sub raças da API de imagem
                 url = 'https://dog.ceo/api/breed/' + key + '/' + name_value + '/images/random'
                 img = requests.get(url).json()
                 
-                # DOWNLOAD IMAGE
+                #baixa a imagem
                 download(key, name_value, img)
         else:
-            # GET IMAGE
+            # pega imagem de raça
             url = 'https://dog.ceo/api/breed/' + key + '/images/random'
             img = requests.get(url).json()
             
-            # DOWNLOAD IMAGE
+            #baixa imgagem
             download(key, '', img)
             
-                     
+#download das raças e sub raças                    
 def download(name, subname, img):
         url = img['message']
         if (img['status'] == 'success'):
