@@ -60,7 +60,7 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(148, activation='softmax')
 ])
 
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'], run_eagerly=True)
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 history = model.fit(validation_generator, epochs=100)
 
